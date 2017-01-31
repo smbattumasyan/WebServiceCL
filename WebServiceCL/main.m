@@ -7,11 +7,36 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Helper.h"
+#import "UserModel.h"
+
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        
+//        system("ffmpeg -i input.jpg -vf scale=320:-1 output_320.png");
+        
+        
+//        UserModel *myUserModel = [[UserModel alloc] init];
+//        myUserModel.username = @"userAnun";
+//        myUserModel.password = @"parol";
+//        myUserModel.name = @"anun";
+//        myUserModel.userImage = nil;
+//        
+//        RLMRealm *realm = [RLMRealm defaultRealm];
+//        
+//        [realm transactionWithBlock:^{
+//            [realm addObject:myUserModel];
+//        }];
+//        
+//        RLMResults<UserModel *> *userResults = [UserModel allObjects];
+//        
+//        NSLog(@"allObjecrts: %@", userResults);
+        
+        Helper *helper = [[Helper alloc] init];
+        [helper loginRegistration];
     }
     return 0;
 }
+
+
