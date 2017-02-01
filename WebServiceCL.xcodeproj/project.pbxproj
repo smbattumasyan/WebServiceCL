@@ -108,8 +108,7 @@
 		80DF567D1E03D6D4007FB432 /* WebServiceCL */ = {
 			isa = PBXGroup;
 			children = (
-				80B14D3C1E3B8AF90038495F /* RealmModels */,
-				80DF57091E040711007FB432 /* CoreData */,
+				80F535C01E41BBEB006BA010 /* Database */,
 				80DF567E1E03D6D4007FB432 /* main.m */,
 				80DF56851E03F63E007FB432 /* Helper.h */,
 				80DF56861E03F63E007FB432 /* Helper.m */,
@@ -127,7 +126,6 @@
 				8020DC681E113DB6002983FF /* User+CoreDataProperties.m */,
 				80DF57061E04069A007FB432 /* CoreDataService.h */,
 				80DF57071E04069A007FB432 /* CoreDataService.m */,
-				80DF570D1E040DC7007FB432 /* Models */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -135,12 +133,13 @@
 		80DF570D1E040DC7007FB432 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				80DF571A1E040E14007FB432 /* UserModelManager */,
+				80DF57091E040711007FB432 /* CoreData */,
+				80B14D3C1E3B8AF90038495F /* RealmModels */,
 			);
 			name = Models;
 			sourceTree = "<group>";
 		};
-		80DF571A1E040E14007FB432 /* UserModelManager */ = {
+		80DF571A1E040E14007FB432 /* DatabaseManager */ = {
 			isa = PBXGroup;
 			children = (
 				80F535BC1E40CCC9006BA010 /* DatabaseManager.h */,
@@ -149,7 +148,16 @@
 				80F535BD1E40D0DF006BA010 /* RealmManager.h */,
 				80F535BE1E40D0DF006BA010 /* RealmManager.m */,
 			);
-			name = UserModelManager;
+			name = DatabaseManager;
+			sourceTree = "<group>";
+		};
+		80F535C01E41BBEB006BA010 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				80DF570D1E040DC7007FB432 /* Models */,
+				80DF571A1E040E14007FB432 /* DatabaseManager */,
+			);
+			name = Database;
 			sourceTree = "<group>";
 		};
 		EDBE6E9A6BEE97818DD810C5 /* Pods */ = {
