@@ -10,6 +10,6 @@
 #import "DatabaseManager.h"
 #import "UserModel.h"
 
-@interface RealmManager : NSObject <DatabaseManagerProtocol>
+@interface UserRealmManager : NSObject <DatabaseManagerProtocol>
 
 @end

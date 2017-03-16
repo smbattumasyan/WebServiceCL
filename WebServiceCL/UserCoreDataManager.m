@@ -6,16 +6,16 @@
 //  Copyright © 2016 EGS. All rights reserved.
 //
 
-#import "CoreDataManager.h"
+#import "UserCoreDataManager.h"
 
-@implementation CoreDataManager 
+@implementation UserCoreDataManager 
 
 //------------------------------------------------------------------------------------------
 #pragma mark - Class Methods
 //------------------------------------------------------------------------------------------
 
 + (instancetype)defaultManager {
-    static CoreDataManager *defaultManager = nil;
+    static UserCoreDataManager *defaultManager = nil;
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
         defaultManager = [[self alloc] init];
@@ -27,7 +27,7 @@
 {
     self = [super init];
     if (self) {
-        self.CoreDataService = [CoreDataService defaultManager];
+        self.coreDataService = [CoreDataService defaultManager];
     }
     return self;
 }
@@ -50,7 +50,7 @@
 //        [realm addObject:newUser];
 //    }];
     
-    User *newUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.CoreDataService.persistentContainer.viewContext];
+    User *newUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.coreDataService.persistentContainer.viewContext];
     
     newUser.name      = userDict[@"name"];
     newUser.email     = userDict[@"email"];
@@ -58,7 +58,7 @@
     newUser.password  = userDict[@"password"];
     newUser.userImage = userDict[@"userImage"];
     
-    [self.CoreDataService saveContext];
+    [self.coreDataService saveContext];
 }
 
 //- (RLMResults *)fetchResultWithPredicate:(NSPredicate *)predicate {
@@ -76,13 +76,13 @@
     NSFetchRequest *request          = [User fetchRequest];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
     
-    if (predicate) {
+    if (predicate != nil) {
         [request setPredicate:predicate];
     }
     
     [request setSortDescriptors:@[sortDescriptor]];
     _fetchedResultsController        = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                           managedObjectContext:self.CoreDataService.persistentContainer.viewContext
+                                                                           managedObjectContext:self.coreDataService.persistentContainer.viewContext
                                                                              sectionNameKeyPath:nil cacheName:nil];
     NSError *error = nil;
     if (![_fetchedResultsController performFetch:&error]) {

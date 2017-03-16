@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.m
 //  
 //
-//  Created by Smbat Tumasyan on 26.12.16.
+//  Created by Smbat Tumasyan on 06.02.17.
 //
 //  This file was automatically generated and should not be edited.
 //
@@ -18,7 +18,10 @@
 @dynamic email;
 @dynamic name;
 @dynamic password;
-@dynamic username;
 @dynamic userImage;
+@dynamic username;
+@dynamic userID;
+@dynamic message;
+@dynamic friends;
 
 @end

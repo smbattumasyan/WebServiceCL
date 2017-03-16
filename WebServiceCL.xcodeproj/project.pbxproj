@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8047B7591E3B92D800A9BBFD /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8047B7581E3B92D800A9BBFD /* UserModel.m */; };
-		80DF567F1E03D6D4007FB432 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DF567E1E03D6D4007FB432 /* main.m */; };
-		80DF56871E03F63E007FB432 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DF56861E03F63E007FB432 /* Helper.m */; };
-		80DF57081E04069A007FB432 /* CoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DF57071E04069A007FB432 /* CoreDataService.m */; };
-		80DF571D1E040E2F007FB432 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DF571C1E040E2F007FB432 /* CoreDataManager.m */; };
-		80DF571E1E04103B007FB432 /* WebServiceCL.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80DF570A1E0407B5007FB432 /* WebServiceCL.xcdatamodeld */; };
-		80F535B91E3F656B006BA010 /* FriendsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80F535B81E3F656B006BA010 /* FriendsListModel.m */; };
-		80F535BF1E40D0DF006BA010 /* RealmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 80F535BE1E40D0DF006BA010 /* RealmManager.m */; };
+		8013D3FA1E486B1000338685 /* CoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DF57071E04069A007FB432 /* CoreDataService.m */; };
+		8013D3FB1E486B1000338685 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8047B7581E3B92D800A9BBFD /* UserModel.m */; };
+		8013D3FC1E486B1000338685 /* FriendsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80F535B81E3F656B006BA010 /* FriendsListModel.m */; };
+		8013D3FD1E486B1000338685 /* UserRealmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 80F535BE1E40D0DF006BA010 /* UserRealmManager.m */; };
+		8013D3FE1E486B1000338685 /* UserCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DF571C1E040E2F007FB432 /* UserCoreDataManager.m */; };
+		8013D3FF1E486B1000338685 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DF567E1E03D6D4007FB432 /* main.m */; };
+		8013D4001E486B1000338685 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DF56861E03F63E007FB432 /* Helper.m */; };
+		8013D4011E486B1000338685 /* WebServiceCL.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80DF570A1E0407B5007FB432 /* WebServiceCL.xcdatamodeld */; };
 		C345398946FAF8152AC5DA43 /* libPods-WebServiceCL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF5DDD61F45CBE3818042E0 /* libPods-WebServiceCL.a */; };
 /* End PBXBuildFile section */
 
@@ -32,12 +32,22 @@
 
 /* Begin PBXFileReference section */
 		41F8FDE87802BD01391FA901 /* Pods-WebServiceCL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceCL.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceCL/Pods-WebServiceCL.debug.xcconfig"; sourceTree = "<group>"; };
-		8020DC651E113DB6002983FF /* User+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataClass.h"; sourceTree = "<group>"; };
-		8020DC661E113DB6002983FF /* User+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataClass.m"; sourceTree = "<group>"; };
-		8020DC671E113DB6002983FF /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
-		8020DC681E113DB6002983FF /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		8013D3B01E48564900338685 /* Message+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Message+CoreDataClass.h"; sourceTree = "<group>"; };
+		8013D3B11E48564900338685 /* Message+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Message+CoreDataClass.m"; sourceTree = "<group>"; };
+		8013D3B21E48564900338685 /* Message+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Message+CoreDataProperties.h"; sourceTree = "<group>"; };
+		8013D3B31E48564900338685 /* Message+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Message+CoreDataProperties.m"; sourceTree = "<group>"; };
+		8013D3EE1E486A6800338685 /* Friends+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Friends+CoreDataClass.h"; sourceTree = "<group>"; };
+		8013D3EF1E486A6800338685 /* Friends+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Friends+CoreDataClass.m"; sourceTree = "<group>"; };
+		8013D3F01E486A6800338685 /* Friends+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Friends+CoreDataProperties.h"; sourceTree = "<group>"; };
+		8013D3F11E486A6800338685 /* Friends+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Friends+CoreDataProperties.m"; sourceTree = "<group>"; };
+		8013D3F41E486A9700338685 /* User+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataClass.h"; sourceTree = "<group>"; };
+		8013D3F51E486A9700338685 /* User+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataClass.m"; sourceTree = "<group>"; };
+		8013D3F61E486A9700338685 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		8013D3F71E486A9700338685 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
 		8047B7571E3B92D800A9BBFD /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		8047B7581E3B92D800A9BBFD /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		80CA398D1E7A80820064BD27 /* chatserver.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = chatserver.py; sourceTree = "<group>"; };
+		80CA398E1E7A80820064BD27 /* client.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = client.py; sourceTree = "<group>"; };
 		80DF567B1E03D6D4007FB432 /* WebServiceCL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WebServiceCL; sourceTree = BUILT_PRODUCTS_DIR; };
 		80DF567E1E03D6D4007FB432 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		80DF56851E03F63E007FB432 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
@@ -45,13 +55,13 @@
 		80DF57061E04069A007FB432 /* CoreDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataService.h; sourceTree = "<group>"; };
 		80DF57071E04069A007FB432 /* CoreDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataService.m; sourceTree = "<group>"; };
 		80DF570B1E0407B5007FB432 /* WebServiceCL.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WebServiceCL.xcdatamodel; sourceTree = "<group>"; };
-		80DF571B1E040E2F007FB432 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
-		80DF571C1E040E2F007FB432 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		80DF571B1E040E2F007FB432 /* UserCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCoreDataManager.h; sourceTree = "<group>"; };
+		80DF571C1E040E2F007FB432 /* UserCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCoreDataManager.m; sourceTree = "<group>"; };
 		80F535B71E3F656B006BA010 /* FriendsListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsListModel.h; sourceTree = "<group>"; };
 		80F535B81E3F656B006BA010 /* FriendsListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsListModel.m; sourceTree = "<group>"; };
 		80F535BC1E40CCC9006BA010 /* DatabaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
-		80F535BD1E40D0DF006BA010 /* RealmManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmManager.h; sourceTree = "<group>"; };
-		80F535BE1E40D0DF006BA010 /* RealmManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmManager.m; sourceTree = "<group>"; };
+		80F535BD1E40D0DF006BA010 /* UserRealmManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRealmManager.h; sourceTree = "<group>"; };
+		80F535BE1E40D0DF006BA010 /* UserRealmManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRealmManager.m; sourceTree = "<group>"; };
 		DCF5DDD61F45CBE3818042E0 /* libPods-WebServiceCL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WebServiceCL.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDBF0999C76D00565A310E83 /* Pods-WebServiceCL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceCL.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceCL/Pods-WebServiceCL.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +86,57 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8013D3B61E48565300338685 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				8013D3B01E48564900338685 /* Message+CoreDataClass.h */,
+				8013D3B11E48564900338685 /* Message+CoreDataClass.m */,
+				8013D3B21E48564900338685 /* Message+CoreDataProperties.h */,
+				8013D3B31E48564900338685 /* Message+CoreDataProperties.m */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
+		8013D3B71E48566200338685 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				8013D3F41E486A9700338685 /* User+CoreDataClass.h */,
+				8013D3F51E486A9700338685 /* User+CoreDataClass.m */,
+				8013D3F61E486A9700338685 /* User+CoreDataProperties.h */,
+				8013D3F71E486A9700338685 /* User+CoreDataProperties.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		8013D3B81E4858F100338685 /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				80DF571B1E040E2F007FB432 /* UserCoreDataManager.h */,
+				80DF571C1E040E2F007FB432 /* UserCoreDataManager.m */,
+			);
+			name = CoreDataManager;
+			sourceTree = "<group>";
+		};
+		8013D3B91E4858FE00338685 /* RealmManager */ = {
+			isa = PBXGroup;
+			children = (
+				80F535BD1E40D0DF006BA010 /* UserRealmManager.h */,
+				80F535BE1E40D0DF006BA010 /* UserRealmManager.m */,
+			);
+			name = RealmManager;
+			sourceTree = "<group>";
+		};
+		8013D3E71E4869E600338685 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				8013D3EE1E486A6800338685 /* Friends+CoreDataClass.h */,
+				8013D3EF1E486A6800338685 /* Friends+CoreDataClass.m */,
+				8013D3F01E486A6800338685 /* Friends+CoreDataProperties.h */,
+				8013D3F11E486A6800338685 /* Friends+CoreDataProperties.m */,
+			);
+			name = Friends;
+			sourceTree = "<group>";
+		};
 		80B14D3C1E3B8AF90038495F /* RealmModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +153,8 @@
 			children = (
 				80DF567D1E03D6D4007FB432 /* WebServiceCL */,
 				80DF567C1E03D6D4007FB432 /* Products */,
+				80CA398D1E7A80820064BD27 /* chatserver.py */,
+				80CA398E1E7A80820064BD27 /* client.py */,
 				EDBE6E9A6BEE97818DD810C5 /* Pods */,
 				1DC34B8E148FF9C5E7C5D191 /* Frameworks */,
 			);
@@ -120,10 +183,9 @@
 		80DF57091E040711007FB432 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				8020DC651E113DB6002983FF /* User+CoreDataClass.h */,
-				8020DC661E113DB6002983FF /* User+CoreDataClass.m */,
-				8020DC671E113DB6002983FF /* User+CoreDataProperties.h */,
-				8020DC681E113DB6002983FF /* User+CoreDataProperties.m */,
+				8013D3E71E4869E600338685 /* Friends */,
+				8013D3B71E48566200338685 /* User */,
+				8013D3B61E48565300338685 /* Message */,
 				80DF57061E04069A007FB432 /* CoreDataService.h */,
 				80DF57071E04069A007FB432 /* CoreDataService.m */,
 			);
@@ -143,10 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				80F535BC1E40CCC9006BA010 /* DatabaseManager.h */,
-				80DF571B1E040E2F007FB432 /* CoreDataManager.h */,
-				80DF571C1E040E2F007FB432 /* CoreDataManager.m */,
-				80F535BD1E40D0DF006BA010 /* RealmManager.h */,
-				80F535BE1E40D0DF006BA010 /* RealmManager.m */,
+				8013D3B91E4858FE00338685 /* RealmManager */,
+				8013D3B81E4858F100338685 /* CoreDataManager */,
 			);
 			name = DatabaseManager;
 			sourceTree = "<group>";
@@ -261,14 +321,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80DF571E1E04103B007FB432 /* WebServiceCL.xcdatamodeld in Sources */,
-				80F535B91E3F656B006BA010 /* FriendsListModel.m in Sources */,
-				80DF571D1E040E2F007FB432 /* CoreDataManager.m in Sources */,
-				8047B7591E3B92D800A9BBFD /* UserModel.m in Sources */,
-				80DF57081E04069A007FB432 /* CoreDataService.m in Sources */,
-				80F535BF1E40D0DF006BA010 /* RealmManager.m in Sources */,
-				80DF567F1E03D6D4007FB432 /* main.m in Sources */,
-				80DF56871E03F63E007FB432 /* Helper.m in Sources */,
+				8013D3FA1E486B1000338685 /* CoreDataService.m in Sources */,
+				8013D3FB1E486B1000338685 /* UserModel.m in Sources */,
+				8013D3FC1E486B1000338685 /* FriendsListModel.m in Sources */,
+				8013D3FD1E486B1000338685 /* UserRealmManager.m in Sources */,
+				8013D3FE1E486B1000338685 /* UserCoreDataManager.m in Sources */,
+				8013D3FF1E486B1000338685 /* main.m in Sources */,
+				8013D4001E486B1000338685 /* Helper.m in Sources */,
+				8013D4011E486B1000338685 /* WebServiceCL.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

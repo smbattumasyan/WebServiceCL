@@ -15,24 +15,7 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
 //        system("ffmpeg -i input.jpg -vf scale=320:-1 output_320.png");
-        
-        
-//        UserModel *myUserModel = [[UserModel alloc] init];
-//        myUserModel.username = @"userAnun";
-//        myUserModel.password = @"parol";
-//        myUserModel.name = @"anun";
-//        myUserModel.userImage = nil;
-//        
-//        RLMRealm *realm = [RLMRealm defaultRealm];
-//        
-//        [realm transactionWithBlock:^{
-//            [realm addObject:myUserModel];
-//        }];
-//        
-//        RLMResults<UserModel *> *userResults = [UserModel allObjects];
-//        
-//        NSLog(@"allObjecrts: %@", userResults);
-        
+        NSLog(@"system: %d", system("pwd"));
         Helper *helper = [[Helper alloc] init];
         [helper loginRegistration];
     }

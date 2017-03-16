@@ -10,11 +10,11 @@
 #import <GCDWebServer.h>
 #import <GCDWebServerDataResponse.h>
 #import <GCDWebServerURLEncodedFormRequest.h>
-#import "CoreDataManager.h"
+#import "UserCoreDataManager.h"
 #import <CoreImage/CoreImage.h>
 #import <Realm/Realm.h>
 #import "DatabaseManager.h"
-#import "RealmManager.h"
+#import "UserRealmManager.h"
 
 @interface Helper () <DatabaseManagerProtocol>
 
@@ -22,7 +22,7 @@
 #pragma mark - Private Properties
 //-------------------------------------------------------------------------------------------
 @property (strong, nonatomic) GCDWebServer *webServer;
-@property (strong, nonatomic) id<DatabaseManagerProtocol> dataManager;
+@property (strong, nonatomic) id<DatabaseManagerProtocol> userDataManager;
 
 @end
 
@@ -36,13 +36,12 @@
     self = [super init];
     if (self) {
         self.webServer = [[GCDWebServer alloc] init];
-        self.dataManager = [CoreDataManager defaultManager];
+        self.userDataManager = [UserCoreDataManager defaultManager];
     }
     return self;
 }
 - (void)loginRegistration {
 
-//    UMManager *umManager = [UMManager defaultManager];
     __block Helper *helper = self;
     
     [self.webServer addHandlerForMethod:@"POST"
@@ -56,12 +55,15 @@
                           if (username == nil || password == nil || [username  isEqual: @""] || [username isEqualToString:@""]) {
                               return nil;
                           }
+                          
+                          NSLog(@"allObjects: %@", [helper getAllUsers]);
                       
                           NSPredicate *predicate     = [NSPredicate predicateWithFormat:@"username==%@ AND password ==%@", username, password];
                           NSDictionary *responseDict = [helper getUserDataWithPredicate:predicate];
 
-//                          CIImage *img               = [CIImage imageWithData:[helper stringToData:responseDict[@"userImage"]]];
-//                          NSLog(@"responseDict:%@", img);
+                          if (responseDict == nil) {
+                              return nil;
+                          }
                           
                           return [GCDWebServerDataResponse responseWithJSONObject:responseDict contentType:@"application/x-www-form-urlencoded"];
                       }];
@@ -80,7 +82,7 @@
                                
                                
                                NSDictionary *userDict     = @{@"username" : username, @"password" : password, @"name" : name, @"email" :email, @"userImage" :userImage};
-                               [helper.dataManager addUser:userDict];
+                               [helper.userDataManager addUser:userDict];
 
                                NSPredicate *predicate     = [NSPredicate predicateWithFormat:@"username==%@ AND password ==%@", username, password];
                                NSDictionary *responseDict = [helper getUserDataWithPredicate:predicate];
@@ -97,20 +99,18 @@
 //-------------------------------------------------------------------------------------------
 - (NSDictionary *)getUserDataWithPredicate:(NSPredicate *)predicate {
     
-    
-    
-    if ([self.dataManager isKindOfClass:[CoreDataManager class]]) {
-            [self.dataManager fetchedResultsControllerWithPredicate:predicate];
+    if ([self.userDataManager isKindOfClass:[UserCoreDataManager class]]) {
+            [self.userDataManager fetchedResultsControllerWithPredicate:predicate];
         
             NSError *error = nil;
-            if (![[self.dataManager fetchedResultsController] performFetch:&error]) {
+            if (![[self.userDataManager fetchedResultsController] performFetch:&error]) {
                 // Handle error
                 NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
                 exit(-1);  // Fail
             }
         
         
-        NSArray *result = [self.dataManager.fetchedResultsController fetchedObjects];
+        NSArray *result = [self.userDataManager.fetchedResultsController fetchedObjects];
         
         if (result.count == 0) {
             return nil;
@@ -119,15 +119,14 @@
         //                              NSLog(@"400 000 rslt: %@ %@ %@ %@",usr.name, usr.username, usr.password, usr.email);
         //                          }
         
-        
         User *usr                  = [result lastObject];
         NSLog(@"usr: %@", usr.password);
-        NSDictionary *responseDict = @{@"name" : usr.name, @"email" : usr.email, @"userImage" :usr.userImage};
+        NSDictionary *responseDict = @{@"username" : usr.username, @"name" : usr.name, @"email" : usr.email, @"userImage" :usr.userImage};
         return responseDict;
         
-    } else if ([self.dataManager isKindOfClass:[RealmManager class]]) {
+    } else if ([self.userDataManager isKindOfClass:[UserRealmManager class]]) {
         
-        RLMResults *result = [self.dataManager fetchResultWithPredicate:predicate];
+        RLMResults *result = [self.userDataManager fetchResultWithPredicate:predicate];
         
         if (result.count == 0) {
             return nil;
@@ -135,8 +134,58 @@
         
         UserModel *usr                  = [result lastObject];
         NSLog(@"usr: %@", usr.password);
-        NSDictionary *responseDict = @{@"name" : usr.name, @"email" : usr.email, @"userImage" :usr.userImage};
+        NSDictionary *responseDict = @{@"username" : usr.username, @"name" : usr.name, @"email" : usr.email, @"userImage" :usr.userImage};
         return responseDict;
+    }
+    
+    
+    return nil;
+}
+
+-(NSArray *)getAllUsers {
+    
+    if ([self.userDataManager isKindOfClass:[UserCoreDataManager class]]) {
+        
+        [self.userDataManager fetchedResultsControllerWithPredicate:nil];
+        NSError *error = nil;
+        if (![[self.userDataManager fetchedResultsController] performFetch:&error]) {
+            // Handle error
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            exit(-1);  // Fail
+        }
+        
+        
+        NSArray *result = [self.userDataManager.fetchedResultsController fetchedObjects];
+        
+        if (result.count == 0) {
+            return nil;
+        }
+        //                          for (User *usr in result) {
+        //                              NSLog(@"400 000 rslt: %@ %@ %@ %@",usr.name, usr.username, usr.password, usr.email);
+        //                          }
+        
+//        User *usr                  = [result lastObject];
+//        NSLog(@"usr: %@", usr.password);
+//        NSDictionary *responseDict = @{@"name" : usr.name, @"email" : usr.email, @"userImage" :usr.userImage};
+        return result;
+        
+    } else if ([self.userDataManager isKindOfClass:[UserRealmManager class]]) {
+        
+        RLMResults *result = [self.userDataManager fetchResultWithPredicate:nil];
+        
+        NSMutableArray *resultList = [NSMutableArray array];
+        for (RLMObject *object in result) {
+            [resultList addObject:object];
+        }
+        
+        if (result.count == 0) {
+            return nil;
+        }
+//        
+//        UserModel *usr                  = [result lastObject];
+//        NSLog(@"usr: %@", usr.password);
+//        NSDictionary *responseDict = @{@"name" : usr.name, @"email" : usr.email, @"userImage" :usr.userImage};
+        return resultList;
     }
     
     

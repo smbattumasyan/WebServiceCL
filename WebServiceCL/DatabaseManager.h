@@ -18,8 +18,8 @@
 @protocol DatabaseManagerProtocol <NSObject>
 
 @optional
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 + (instancetype)defaultManager;
-   @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 - (void)addUser:(NSDictionary *)userDict;
 - (RLMResults *)fetchResultWithPredicate:(NSPredicate *)predicate;
 - (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate;

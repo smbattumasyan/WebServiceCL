@@ -12,11 +12,10 @@
 #import "UserModel.h"
 #import "DatabaseManager.h"
 
-
-@interface CoreDataManager : NSObject <DatabaseManagerProtocol>
+@interface UserCoreDataManager : NSObject <DatabaseManagerProtocol>
 
 #pragma Mark - Propertyes
-@property (strong, nonatomic) CoreDataService            *CoreDataService;
+@property (strong, nonatomic) CoreDataService            *coreDataService;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 //#pragma Mark - Class Methods

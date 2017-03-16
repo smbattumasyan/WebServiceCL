@@ -6,12 +6,12 @@
 //  Copyright © 2017 EGS. All rights reserved.
 //
 
-#import "RealmManager.h"
+#import "UserRealmManager.h"
 
-@implementation RealmManager
+@implementation UserRealmManager
 
 + (instancetype)defaultManager {
-    static RealmManager *defaultManager = nil;
+    static UserRealmManager *defaultManager = nil;
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
         defaultManager = [[self alloc] init];
@@ -19,21 +19,7 @@
     return defaultManager;
 }
 
-
 - (void)addUser:(NSDictionary *)userDict {
-    
-        UserModel *newUser = [[UserModel alloc] init];
-        newUser.name      = userDict[@"name"];
-        newUser.email     = userDict[@"email"];
-        newUser.username  = userDict[@"username"];
-        newUser.password  = userDict[@"password"];
-        newUser.userImage = userDict[@"userImage"];
-    
-        RLMRealm *realm = [RLMRealm defaultRealm];
-    
-        [realm transactionWithBlock:^{
-            [realm addObject:newUser];
-        }];
 }
 
 - (RLMResults *)fetchResultWithPredicate:(NSPredicate *)predicate {

@@ -1,5 +1,5 @@
 //
-//  User+CoreDataClass.h
+//  Friends+CoreDataClass.h
 //  
 //
 //  Created by Smbat Tumasyan on 06.02.17.
@@ -10,14 +10,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Friends, Message;
+@class User;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface User : NSManagedObject
+@interface Friends : NSManagedObject
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-#import "User+CoreDataProperties.h"
+#import "Friends+CoreDataProperties.h"
